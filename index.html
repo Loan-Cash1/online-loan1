@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loan Application</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -14,8 +14,10 @@
       margin: 0;
       font-family: 'Noto Sans Sinhala', Arial, sans-serif;
       background-color: #fefefe;
+      padding: 0;
     }
 
+    /* --- Navbar --- */
     .navbar {
       width: 100%;
       position: sticky;
@@ -40,9 +42,10 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      margin-left: auto;
     }
 
-    .lang-toggle, .login-btn, .options-btn {
+    .nav-right .lang-toggle {
       background-color: transparent;
       border: 2px solid #007bff;
       color: #007bff;
@@ -52,22 +55,56 @@
       font-weight: bold;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
+    .options-btn {
+      font-size: 1.2em;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    h2 {
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .nav-right {
+        margin-left: auto;
+      }
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+      background: #ffffff;
+    }
+
+    h2, h3, p {
       text-align: center;
     }
 
-    .slider-container {
+    .slider-container,
+    .repayment,
+    .stats-cards,
+    .loan-offer-card,
+    .service-eligibility {
       margin-top: 30px;
+      width: 100%;
     }
 
-    .slider-container label {
+    label {
       font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="range"] {
+      width: 100%;
     }
 
     .output {
@@ -76,29 +113,132 @@
       margin-top: 5px;
     }
 
-    input[type="range"] {
-      width: 100%;
-    }
-
     .repayment {
-      margin-top: 30px;
       background: #f0f0f0;
       padding: 15px;
       border-radius: 8px;
+      font-size: 0.95rem;
     }
 
-    .repayment p {
-      margin: 5px 0;
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 6px;
+      font-weight: bold;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(40,167,69, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(40,167,69, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(40,167,69, 0); }
+    }
+
+    .stats-cards {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      flex: 1 1 45%;
+      background: #4d10b7;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      min-height: 120px;
+    }
+
+    .loan-offer-card {
+      background: #e0f7fa;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .loan-offer-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .btn-loan {
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: inline-block;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
+    .service-eligibility {
+      background-image: url('https://i.ibb.co/VckrkwZ6/lake-mountains.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 300px;
+      position: relative;
+    }
+
+    .service-eligibility .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .service-eligibility ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+
+    .service-eligibility li {
+      margin-bottom: 10px;
+    }
+
+    .btn-cta {
+      background-color: #00c853;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .benefits-container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
 
     .message-box {
-      margin-top: 30px;
       background-color: #ffffff;
       border-radius: 10px;
       padding: 20px;
       line-height: 1.8;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       font-size: 16px;
+      white-space: normal;
     }
 
     .floating-button {
@@ -122,70 +262,56 @@
       height: 40px;
     }
 
-    footer {
-      background-color: #000;
-      color: #ccc;
-      padding: 40px 20px;
-      margin-top: 60px;
-    }
-
-    footer h2, footer h3 {
-      color: white;
-    }
-
-    footer a {
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: #fff;
-    }
-
-    .footer-container {
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .footer-links {
+    .benefit {
       display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 30px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    .footer-column {
-      min-width: 150px;
-      margin-bottom: 20px;
+    .benefit img {
+      width: 60px;
+      height: 60px;
+      margin-right: 20px;
     }
 
-    .footer-contact {
-      margin-top: 20px;
+    .benefit h3 {
+      margin: 0 0 5px;
+      font-size: 1.1em;
+      color: #000;
     }
 
-    .footer-social {
-      margin-top: 20px;
-    }
-
-    .footer-social a {
-      margin-right: 10px;
-      font-size: 1.5em;
+    .benefit p {
+      margin: 0;
+      color: #777;
     }
 
     @media (max-width: 600px) {
-      .footer-links {
-        flex-direction: column;
-        gap: 20px;
+      .card {
+        flex: 1 1 100%;
       }
 
       .container {
         padding: 15px;
+      }
+
+      .benefit {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .benefit img {
+        margin-bottom: 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Navigation Bar -->
   <div class="navbar">
     <div class="nav-left">
       <a href="#" class="home-btn">Home</a>
@@ -197,68 +323,68 @@
     </div>
   </div>
 
-  <!-- Main Container -->
+  <!-- Main Content -->
   <div class="container">
-    <h2>ණය ඉල්ලුම්පත්‍රය</h2>
+    <h2>රු 500,000 දක්වා ණය – සම්පූර්ණයෙන්ම Online!</h2>
+    <p>අවශ්‍ය වන්නේ ඔබේ හැඳුනුම්පත පමණි!</p>
 
-    <!-- Loan Amount Slider -->
     <div class="slider-container">
-      <label for="loanRange">ණය මුදල තෝරන්න (රු.):</label>
-      <input type="range" id="loanRange" min="40000" max="300000" step="1000" value="40000" />
-      <div class="output">තෝරාගත් මුදල: <span id="loanAmount">40,000</span> රු.</div>
+      <label for="loanRange">ඔබට අවශ්‍ය මුදල:</label>
+      <input type="range" id="loanRange" min="40000" max="300000" step="1000" value="40000">
+      <div class="output">රු <span id="loanAmount">40000</span></div>
     </div>
 
-    <!-- Repayment Summary -->
     <div class="repayment">
-      <p>පිටවීමේ මුළු මුදල: <span id="repaymentAmount">44,000</span> රු.</p>
-      <p>පට්ටම් අනුපාතය: <span id="interestRate">10%</span></p>
-      <p>ගෙවීම් කාලය: <span id="duration">6</span> මාස</p>
-      <p>මාසික වාරිකය: <span id="monthlyPayment">7,333</span> රු.</p>
+      මුළු ගෙවීම: රු <span id="repaymentAmount">44000</span><br>
+      පොලී: <span id="interestRate">10%</span><br>
+      කාලය: <span id="duration">6</span> මාස<br>
+      මාසික ගෙවීම: රු <span id="monthlyPayment">7333</span>
     </div>
 
-    <!-- Message Box -->
+    <a href="https://forms.gle/qPBJuX9akn4aRtGR9" target="_blank" class="btn">ණයක් ඉල්ලන්න</a>
+
+    <div class="stats-cards">
+      <div class="card">
+        <div>සේවාදායකයන්</div>
+        <div style="font-size: 1.5rem;">312,000+</div>
+      </div>
+      <div class="card">
+        <div>අලුත් Join උනේ අද</div>
+        <div style="font-size: 1.5rem;" id="newUsers">255</div>
+      </div>
+    </div>
+
+    <div class="loan-offer-card">
+      <h3>Get a loan in 15 minutes</h3>
+      <img src="https://i.ibb.co/hFVvTxGY/Whats-App-Image-2025-05-27-at-10-09-48-05ead45a.jpg" alt="Loan">
+      <p>Up to LKR 100,000 for any purpose</p>
+      <p>Registration in 10 minutes</p>
+      <a href="#" class="btn-loan">Get money</a>
+    </div>
+
+    <div class="service-eligibility"> 
+      <div class="overlay">
+        <h3>Who can use our service?</h3>
+        <ul>
+          <li>Age: 22 - 80</li>
+          <li>Location: Sri Lanka</li>
+          <li>Income: Any income earner</li>
+        </ul>
+        <a href="#" class="btn-cta">Get money now</a>
+      </div>
+    </div>
+
+    <div class="benefits-container"></div>
+
     <div class="message-box">
       <p>ශ්‍රී ලංකාවේ ආන්තර්ජාතික නියෝජ්‍යයාණන් යනු ඔබට අවශ්‍ය නැද්දීමූල්‍ය අවශ්‍යතා...</p>
     </div>
   </div>
 
-  <!-- Floating Chat Button -->
   <div class="floating-button">
-    <img src="https://i.ibb.co/VcfMGQTz/New-Project.png" alt="Chat" />
+    <img src="https://i.ibb.co/VcfMGQTz/New-Project.png" alt="Chat">
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <h2><span style="color: #33cc66;">🟢</span> ceyloan</h2>
-      <div class="footer-links">
-        <div class="footer-column">
-          <p><a href="#">Home</a></p>
-          <p><a href="#">Apply for a loan</a></p>
-          <p><a href="#">Privacy policy</a></p>
-          <p><a href="#">Help</a></p>
-        </div>
-        <div class="footer-column">
-          <p><a href="#">How to pay</a></p>
-          <p><a href="#">About</a></p>
-          <p><a href="#">Terms & conditions</a></p>
-        </div>
-      </div>
-      <div class="footer-contact">
-        <h3>Contact us:</h3>
-        <p>📞 <a href="tel:0114279800">0114279800</a></p>
-        <p>✉ <a href="mailto:help@ceyloan.lk">help@ceyloan.lk</a></p>
-        <p>⏰ Daily 8:00 AM - 10:30 PM</p>
-      </div>
-      <div class="footer-social">
-        <p>Follow us:</p>
-        <a href="#">📘</a>
-        <a href="#">📸</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Script -->
   <script>
     const range = document.getElementById("loanRange");
     const loanAmount = document.getElementById("loanAmount");
@@ -290,6 +416,25 @@
     });
 
     updateValues(range.value);
+
+    function animateSlider(min, max, delay = 10) {
+      let direction = 1;
+      let value = min;
+      const interval = setInterval(() => {
+        range.value = value;
+        updateValues(value);
+        value += 1000 * direction;
+        if (value >= max) {
+          direction = -1;
+        } else if (value <= min) {
+          clearInterval(interval);
+        }
+      }, delay);
+    }
+
+    window.addEventListener("load", () => {
+      animateSlider(40000, 300000);
+    });
   </script>
 </body>
 </html>
