@@ -381,7 +381,7 @@
 
     function updateValues(value) {
       const amount = parseInt(value);
-      const interest = 70;
+      const interest = 0.1;
       let months = 6;
       if (amount > 70000) months = 12;
       if (amount > 150000) months = 24;
@@ -403,8 +403,8 @@
 
     updateValues(range.value);
 
-    function animateSlider(min, max, delay = 50) {
-      let direction = 0.2;
+    function animateSlider(min, max, delay = 10) {
+      let direction = 1;
       let value = min;
       const interval = setInterval(() => {
         range.value = value;
