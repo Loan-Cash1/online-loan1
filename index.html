@@ -404,7 +404,7 @@
     updateValues(range.value);
 
     function animateSlider(min, max, delay = 50) {
-      let direction = 1;
+      let direction = 0.2;
       let value = min;
       const interval = setInterval(() => {
         range.value = value;
