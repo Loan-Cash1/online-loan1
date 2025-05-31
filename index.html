@@ -305,9 +305,9 @@
       .benefit img {
         margin-bottom: 10px;
       }
-    
+    }
 
-     footer {
+    footer {
       background-color: #000;
       color: #ccc;
       padding: 40px 20px;
@@ -378,8 +378,16 @@
     @media (max-width: 600px) {
       .footer-links {
         flex-direction: column;
+      }
+
+      .footer-column {
+        margin-bottom: 15px;
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
     }
-      
   </style>
 </head>
 <body>
@@ -431,7 +439,6 @@
           <p><a href="#">Terms & conditions</a></p>
         </div>
       </div>
-      
       <div class="footer-contact">
         <h3>Contact us:</h3>
         <p>📞 <a href="tel:0114279800">0114279800</a></p>
@@ -444,7 +451,6 @@
         <a href="#">📸</a>
       </div>
     </div>
-  </footer>
 
   <script>
     const range = document.getElementById("loanRange");
