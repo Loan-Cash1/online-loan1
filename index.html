@@ -138,32 +138,32 @@
       0% { box-shadow: 0 0 0 0 rgba(40,167,69, 0.7); }
       70% { box-shadow: 0 0 0 10px rgba(40,167,69, 0); }
       100% { box-shadow: 0 0 0 0 rgba(40,167,69, 0); }
-    } 
-    
-    .card-container {
-      flex: 1 1 45%;  
-      background-color: #321b47;
-       color: white;
+    }
+
+    .stats-cards {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      flex: 1 1 45%;
+      background: #4d10b7;
+      color: white;
       padding: 15px;
       border-radius: 8px;
       text-align: center;
       min-height: 120px;
     }
 
-    .card-container {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-     .card-container {
+    .loan-offer-card {
       background: #e0f7fa;
       padding: 20px;
       border-radius: 8px;
       text-align: center;
     }
 
-    .card-container {
+    .loan-offer-card img {
       max-width: 100%;
       height: auto;
       margin-bottom: 10px;
@@ -343,20 +343,16 @@
 
     <a href="https://forms.gle/qPBJuX9akn4aRtGR9" target="_blank" class="btn">ණයක් ඉල්ලන්න</a>
 
-    <div class="card-container">
-    <div class="card">
-      <div class="icon"><i class="fas fa-users"></i></div>
-      <div class="number">312.000</div>
-      <div class="label">කුළු තප්පිමන් සේවා දායකයින්</div>
-    </div>
-
+    <div class="stats-cards">
       <div class="card">
-      <div class="icon"><i class="fas fa-user-friends"></i></div>
-      <div class="number">255</div>
-      <div class="label">අද දින ලැබූ නව ප්‍රමාණය</div>
+        <div>සේවාදායකයන්</div>
+        <div style="font-size: 1.5rem;">312,000+</div>
+      </div>
+      <div class="card">
+        <div>අලුත් Join උනේ අද</div>
+        <div style="font-size: 1.5rem;" id="newUsers">255</div>
+      </div>
     </div>
-  </div>
-
 
     <div class="loan-offer-card">
       <h3>Get a loan in 15 minutes</h3>
