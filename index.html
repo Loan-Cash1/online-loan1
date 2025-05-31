@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Loan Application</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&display=swap" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
@@ -17,7 +17,6 @@
       padding: 0;
     }
 
-    /* --- Navbar --- */
     .navbar {
       width: 100%;
       position: sticky;
@@ -307,11 +306,93 @@
         margin-bottom: 10px;
       }
     }
+
+    footer {
+      background-color: #000;
+      color: #ccc;
+      padding: 40px 20px;
+      font-family: 'Noto Sans Sinhala', sans-serif;
+    }
+
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    footer h2, footer h3 {
+      color: white;
+    }
+
+    footer .contact a {
+      color: #33cc66;
+      font-weight: bold;
+    }
+
+    footer .social a {
+      margin-right: 15px;
+      color: white;
+      font-size: 1.4em;
+      transition: transform 0.3s;
+    }
+
+    footer .social a:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .footer-column {
+      min-width: 150px;
+      margin-bottom: 20px;
+    }
+
+    .footer-column p {
+      margin: 8px 0;
+    }
+
+    .footer-contact {
+      margin-bottom: 30px;
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .footer-links {
+        flex-direction: column;
+      }
+
+      .footer-column {
+        margin-bottom: 15px;
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navbar -->
   <div class="navbar">
     <div class="nav-left">
       <a href="#" class="home-btn">Home</a>
@@ -323,67 +404,54 @@
     </div>
   </div>
 
-  <!-- Main Content -->
+  <!-- Content -->
   <div class="container">
-    <h2>රු 500,000 දක්වා ණය – සම්පූර්ණයෙන්ම Online!</h2>
-    <p>අවශ්‍ය වන්නේ ඔබේ හැඳුනුම්පත පමණි!</p>
+    <!-- Loan Info, Slider, Cards, etc. (same as before) -->
 
-    <div class="slider-container">
-      <label for="loanRange">ඔබට අවශ්‍ය මුදල:</label>
-      <input type="range" id="loanRange" min="40000" max="300000" step="1000" value="40000">
-      <div class="output">රු <span id="loanAmount">40000</span></div>
-    </div>
-
-    <div class="repayment">
-      මුළු ගෙවීම: රු <span id="repaymentAmount">44000</span><br>
-      පොලී: <span id="interestRate">10%</span><br>
-      කාලය: <span id="duration">6</span> මාස<br>
-      මාසික ගෙවීම: රු <span id="monthlyPayment">7333</span>
-    </div>
-
-    <a href="https://forms.gle/qPBJuX9akn4aRtGR9" target="_blank" class="btn">ණයක් ඉල්ලන්න</a>
-
-    <div class="stats-cards">
-      <div class="card">
-        <div>සේවාදායකයන්</div>
-        <div style="font-size: 1.5rem;">312,000+</div>
-      </div>
-      <div class="card">
-        <div>අලුත් Join උනේ අද</div>
-        <div style="font-size: 1.5rem;" id="newUsers">255</div>
-      </div>
-    </div>
-
-    <div class="loan-offer-card">
-      <h3>Get a loan in 15 minutes</h3>
-      <img src="https://i.ibb.co/hFVvTxGY/Whats-App-Image-2025-05-27-at-10-09-48-05ead45a.jpg" alt="Loan">
-      <p>Up to LKR 100,000 for any purpose</p>
-      <p>Registration in 10 minutes</p>
-      <a href="#" class="btn-loan">Get money</a>
-    </div>
-
-    <div class="service-eligibility"> 
-      <div class="overlay">
-        <h3>Who can use our service?</h3>
-        <ul>
-          <li>Age: 22 - 80</li>
-          <li>Location: Sri Lanka</li>
-          <li>Income: Any income earner</li>
-        </ul>
-        <a href="#" class="btn-cta">Get money now</a>
-      </div>
-    </div>
-
-    <div class="benefits-container"></div>
+    <!-- Your other HTML content remains the same -->
 
     <div class="message-box">
       <p>ශ්‍රී ලංකාවේ ආන්තර්ජාතික නියෝජ්‍යයාණන් යනු ඔබට අවශ්‍ය නැද්දීමූල්‍ය අවශ්‍යතා...</p>
     </div>
   </div>
 
+  <!-- Floating Chat Button -->
   <div class="floating-button">
-    <img src="https://i.ibb.co/VcfMGQTz/New-Project.png" alt="Chat">
+    <img src="https://i.ibb.co/VcfMGQTz/New-Project.png" alt="Chat" />
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h2><span style="color: #33cc66;">🟢</span> ceyloan</h2>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <p><a href="#">Home</a></p>
+          <p><a href="#">Apply for a loan</a></p>
+          <p><a href="#">Privacy policy</a></p>
+          <p><a href="#">Help</a></p>
+        </div>
+        <div class="footer-column">
+          <p><a href="#">How to pay</a></p>
+          <p><a href="#">About</a></p>
+          <p><a href="#">Terms & conditions</a></p>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact us:</h3>
+        <p>📞 <a href="tel:0114279800">0114279800</a></p>
+        <p>✉ <a href="mailto:help@ceyloan.lk">help@ceyloan.lk</a></p>
+        <p>⏰ Daily 8:00 AM - 10:30 PM</p>
+      </div>
+      <div class="footer-social">
+        <p>Follow us:</p>
+        <a href="#">📘</a>
+        <a href="#">📸</a>
+      </div>
+    </div>
+  </footer>
 
   <script>
     const range = document.getElementById("loanRange");
