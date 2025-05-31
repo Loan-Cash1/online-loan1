@@ -421,87 +421,91 @@
   </div>
 
   <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div>
-        <h2><span style="color: #33cc66;">🟢</span> ceyloan</h2>
+ <!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div>
+      <h2><span style="color: #33cc66;">🟢</span> ceyloan</h2>
+    </div>
+    <div class="footer-links">
+      <div class="footer-column">
+        <p><a href="#">Home</a></p>
+        <p><a href="#">Apply for a loan</a></p>
+        <p><a href="#">Privacy policy</a></p>
+        <p><a href="#">Help</a></p>
       </div>
-      <div class="footer-links">
-        <div class="footer-column">
-          <p><a href="#">Home</a></p>
-          <p><a href="#">Apply for a loan</a></p>
-          <p><a href="#">Privacy policy</a></p>
-          <p><a href="#">Help</a></p>
-        </div>
-        <div class="footer-column">
-          <p><a href="#">How to pay</a></p>
-          <p><a href="#">About</a></p>
-          <p><a href="#">Terms & conditions</a></p>
-        </div>
-      </div>
-      <div class="footer-contact">
-        <h3>Contact us:</h3>
-        <p>📞 <a href="tel:0114279800">0114279800</a></p>
-        <p>✉ <a href="mailto:help@ceyloan.lk">help@ceyloan.lk</a></p>
-        <p>⏰ Daily 8:00 AM - 10:30 PM</p>
-      </div>
-      <div class="footer-social">
-        <p>Follow us:</p>
-        <a href="#">📘</a>
-        <a href="#">📸</a>
+      <div class="footer-column">
+        <p><a href="#">How to pay</a></p>
+        <p><a href="#">About</a></p>
+        <p><a href="#">Terms & conditions</a></p>
       </div>
     </div>
+    <div class="footer-contact">
+      <h3>Contact us:</h3>
+      <p>📞 <a href="tel:0114279800">0114279800</a></p>
+      <p>✉ <a href="mailto:help@ceyloan.lk">help@ceyloan.lk</a></p>
+      <p>⏰ Daily 8:00 AM - 10:30 PM</p>
+    </div>
+    <div class="footer-social">
+      <p>Follow us:</p>
+      <a href="#">📘</a>
+      <a href="#">📸</a>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    const range = document.getElementById("loanRange");
-    const loanAmount = document.getElementById("loanAmount");
-    const repaymentAmount = document.getElementById("repaymentAmount");
-    const interestRate = document.getElementById("interestRate");
-    const duration = document.getElementById("duration");
-    const monthlyPayment = document.getElementById("monthlyPayment");
+<!-- Script (keep this outside footer) -->
+<script>
+  const range = document.getElementById("loanRange");
+  const loanAmount = document.getElementById("loanAmount");
+  const repaymentAmount = document.getElementById("repaymentAmount");
+  const interestRate = document.getElementById("interestRate");
+  const duration = document.getElementById("duration");
+  const monthlyPayment = document.getElementById("monthlyPayment");
 
-    function updateValues(value) {
-      const amount = parseInt(value);
-      const interest = 0.1;
-      let months = 6;
-      if (amount > 70000) months = 12;
-      if (amount > 150000) months = 24;
-      if (amount > 220000) months = 30;
+  function updateValues(value) {
+    const amount = parseInt(value);
+    const interest = 0.1;
+    let months = 6;
+    if (amount > 70000) months = 12;
+    if (amount > 150000) months = 24;
+    if (amount > 220000) months = 30;
 
-      const total = amount + amount * interest;
-      const monthly = total / months;
+    const total = amount + amount * interest;
+    const monthly = total / months;
 
-      loanAmount.textContent = amount.toLocaleString();
-      repaymentAmount.textContent = Math.round(total).toLocaleString();
-      interestRate.textContent = "10%";
-      duration.textContent = months;
-      monthlyPayment.textContent = Math.round(monthly).toLocaleString();
-    }
+    loanAmount.textContent = amount.toLocaleString();
+    repaymentAmount.textContent = Math.round(total).toLocaleString();
+    interestRate.textContent = "10%";
+    duration.textContent = months;
+    monthlyPayment.textContent = Math.round(monthly).toLocaleString();
+  }
 
-    range.addEventListener("input", (e) => {
-      updateValues(e.target.value);
-    });
+  range.addEventListener("input", (e) => {
+    updateValues(e.target.value);
+  });
 
-    updateValues(range.value);
+  updateValues(range.value);
 
-    function animateSlider(min, max, delay = 10) {
-      let direction = 1;
-      let value = min;
-      const interval = setInterval(() => {
-        range.value = value;
-        updateValues(value);
-        value += 1000 * direction;
-        if (value >= max) {
-          direction = -1;
-        } else if (value <= min) {
-          clearInterval(interval);
-        }
-      }, delay);
-    }
+  function animateSlider(min, max, delay = 10) {
+    let direction = 1;
+    let value = min;
+    const interval = setInterval(() => {
+      range.value = value;
+      updateValues(value);
+      value += 1000 * direction;
+      if (value >= max) {
+        direction = -1;
+      } else if (value <= min) {
+        clearInterval(interval);
+      }
+    }, delay);
+  }
 
-    window.addEventListener("load", () => {
-      animateSlider(40000, 300000);
-    });
-  </script>
+  window.addEventListener("load", () => {
+    animateSlider(40000, 300000);
+  });
+</script>
+
 </body>
 </html>
