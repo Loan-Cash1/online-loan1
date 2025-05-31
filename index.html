@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loan Application</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -16,6 +17,7 @@
       padding: 0;
     }
 
+    /* --- Navbar --- */
     .navbar {
       width: 100%;
       position: sticky;
@@ -35,11 +37,14 @@
       font-weight: bold;
       font-size: 1.1em;
     }
+
     .nav-right {
       display: flex;
       align-items: center;
       gap: 10px;
+      margin-left: auto;
     }
+
     .nav-right .lang-toggle {
       background-color: transparent;
       border: 2px solid #007bff;
@@ -49,7 +54,7 @@
       cursor: pointer;
       font-weight: bold;
     }
-    
+
     .options-btn {
       font-size: 1.2em;
       border-radius: 50%;
@@ -59,6 +64,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .nav-right {
+        margin-left: auto;
+      }
     }
 
     .container {
@@ -225,18 +241,6 @@
       white-space: normal;
     }
 
-    .main-button {
-      margin-top: 20px;
-      background-color: #f1f5ff;
-      color: #000;
-      font-size: 18px;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
-
     .floating-button {
       position: fixed;
       bottom: 30px;
@@ -302,18 +306,13 @@
       .benefit img {
         margin-bottom: 10px;
       }
-
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
   </style>
 </head>
 <body>
 
   <!-- Navigation Bar -->
-<div class="navbar">
+  <div class="navbar">
     <div class="nav-left">
       <a href="#" class="home-btn">Home</a>
     </div>
@@ -375,9 +374,7 @@
       </div>
     </div>
 
-    <div class="benefits-container">
-      <!-- Repeat .benefit blocks as needed -->
-    </div>
+    <div class="benefits-container"></div>
 
     <div class="message-box">
       <p>ශ්‍රී ලංකාවේ ආන්තර්ජාතික නියෝජ්‍යයාණන් යනු ඔබට අවශ්‍ය නැද්දීමූල්‍ය අවශ්‍යතා...</p>
