@@ -502,7 +502,7 @@
 
     function updateValues(value) {
       const amount = parseInt(value);
-      const interest = 0.1;
+      const interest = 0.9;
       let months = 6;
       if (amount > 100000) months = 12;
       if (amount > 180000) months = 24;
@@ -514,7 +514,7 @@
 
       loanAmount.textContent = amount.toLocaleString();
       repaymentAmount.textContent = Math.round(total).toLocaleString();
-      interestRate.textContent = "10%";
+      interestRate.textContent = "9%";
       duration.textContent = months;
       monthlyPayment.textContent = Math.round(monthly).toLocaleString();
     }
