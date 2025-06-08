@@ -377,12 +377,12 @@
 
   <!-- Main Content -->
   <div class="container">
-    <h2>රු 500,000 දක්වා ණය – සම්පූර්ණයෙන්ම Online!</h2>
+    <h2>රු 1000,000 දක්වා ණය – සම්පූර්ණයෙන්ම Online!</h2>
     <p>අවශ්‍ය වන්නේ ඔබේ හැඳුනුම්පත පමණි!</p>
 
     <div class="slider-container">
       <label for="loanRange">ඔබට අවශ්‍ය මුදල:</label>
-     <input type="range" id="loanRange" min="40000" max="500000" step="10000" value="40000">
+    <input type="range" id="loanRange" min="40000" max="1000000" step="1000" value="40000">
       <div class="output">රු <span id="loanAmount">40000</span></div>
     </div>
 
@@ -501,24 +501,26 @@
     const duration = document.getElementById("duration");
     const monthlyPayment = document.getElementById("monthlyPayment");
 
-    function updateValues(value) {
-      const amount = parseInt(value);
-      const interest = 0.09;
-      let months = 6;
-      if (amount > 100000) months = 12;
-      if (amount > 180000) months = 24;
-      if (amount > 350000) months = 36;
-      if (amount > 400000) months = 48;
+   function updateValues(value) {
+  const amount = parseInt(value);
+  const interest = 0.1;
+  let months = 6;
 
-      const total = amount + amount * interest;
-      const monthly = total / months;
+  if (amount > 70000) months = 12;
+  if (amount > 150000) months = 24;
+  if (amount > 220000) months = 30;
+  if (amount > 500000) months = 36;
+  if (amount > 800000) months = 48;
 
-      loanAmount.textContent = amount.toLocaleString();
-      repaymentAmount.textContent = Math.round(total).toLocaleString();
-      interestRate.textContent = "9%";
-      duration.textContent = months;
-      monthlyPayment.textContent = Math.round(monthly).toLocaleString();
-    }
+  const total = amount + amount * interest;
+  const monthly = total / months;
+
+  loanAmount.textContent = amount.toLocaleString();
+  repaymentAmount.textContent = Math.round(total).toLocaleString();
+  interestRate.textContent = "10%";
+  duration.textContent = months;
+  monthlyPayment.textContent = Math.round(monthly).toLocaleString();
+}
 
     range.addEventListener("input", (e) => {
       updateValues(e.target.value);
@@ -542,7 +544,7 @@
     }
 
     window.addEventListener("load", () => {
-      animateSlider(40000, 500000);
+     animateSlider(40000, 1000000, 1); // milliseconds
     });
   </script>
 </body>
